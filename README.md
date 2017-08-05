@@ -2,7 +2,7 @@
 
 [Conan.io](https://conan.io) package for [Boost.Level8Group](http://www.boost.org/doc/libs/1_64_0/libs/libraries.htm) 
 
-The packages generated with this **conanfile** can be found in [Bintray](https://bintray.com/bincrafters/conan-public/Boost.Level8Group%3Abincrafters).
+The packages generated with this **conanfile** can be found in [Bintray](https://bintray.com/bincrafters/public-conan/Boost.Level8Group%3Abincrafters).
 
 ## For Users
 
