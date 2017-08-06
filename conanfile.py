@@ -4,12 +4,13 @@ from conans import ConanFile, tools, os
 class BoostLevel8GroupConan(ConanFile):
     name = "Boost.Level8Group"
     version = "1.64.0"
-    generators = "txt"
+    generators = "boost"
     settings = "os", "arch", "compiler", "build_type"
     url = "https://github.com/bincrafters/conan-boost-level8group"
     description = "Special package with all members of cyclic dependency group"
     license = "www.boost.org/users/license.html"
-    build_requires = "Boost.Build/1.64.0@bincrafters/testing"
+    build_requires = "Boost.Generator/0.0.1@bincrafters/testing"
+    lib_short_names = ["math", "lexical_cast"]
     requires = "Boost.Array/1.64.0@bincrafters/testing", \
                "Boost.Assert/1.64.0@bincrafters/testing", \
                "Boost.Atomic/1.64.0@bincrafters/testing", \
@@ -48,11 +49,28 @@ class BoostLevel8GroupConan(ConanFile):
         self.run("git clone --depth=50 --branch=boost-{0} {1}.git"
                  .format(self.version, "https://github.com/boostorg/lexical_cast"))
                  
+    def build(self):
+        boost_build = self.deps_cpp_info["Boost.Build"]
+        b2_bin_name = "b2.exe" if self.settings.os == "Windows" else "b2"
+        b2_bin_dir_name = boost_build.bindirs[0]
+        b2_full_path = os.path.join(boost_build.rootpath, b2_bin_dir_name, b2_bin_name)
+
+        toolsets = {
+          'gcc': 'gcc',
+          'Visual Studio': 'msvc',
+          'clang': 'clang',
+          'apple-clang': 'darwin'}
+
+        b2_toolset = toolsets[str(self.settings.compiler)]
+        
+        self.run(b2_full_path + " -j4 -a --hash=yes toolset=" + b2_toolset)
+        
     def package(self):
-        math_dir = os.path.join(self.build_folder, "math", "include")
-        self.copy(pattern="*", dst="include", src=math_dir)
-
-        lexical_cast_dir = os.path.join(self.build_folder, "lexical_cast", "include")
-        self.copy(pattern="*", dst="include", src=lexical_cast_dir)
-
-
+        for lib_short_name in self.lib_short_names:
+            include_dir = os.path.join(self.build_folder, lib_short_name, "include")
+            self.copy(pattern="*", dst="include", src=include_dir)
+            lib_dir = os.path.join(self.build_folder, "stage/lib")
+            self.copy(pattern="*", dst="lib", src=lib_dir)
+       
+    def package_info(self):
+        self.cpp_info.libs = ["boost_%s"%(lib_short_name) for lib_short_name in self.lib_short_names ]
