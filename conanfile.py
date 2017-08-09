@@ -43,11 +43,10 @@ class BoostLevel8GroupConan(ConanFile):
     # exception2 type_traits3
 
     def source(self):
-        self.run("git clone --depth=50 --branch=boost-{0} {1}.git"
-                 .format(self.version, "https://github.com/boostorg/math"))
+        for lib_short_name in self.lib_short_names:
+            self.run("git clone --depth=50 --branch=boost-{0} https://github.com/boostorg/{1}.git"
+                     .format(self.version, lib_short_name))
 
-        self.run("git clone --depth=50 --branch=boost-{0} {1}.git"
-                 .format(self.version, "https://github.com/boostorg/lexical_cast"))
                  
     def build(self):
         boost_build = self.deps_cpp_info["Boost.Build"]
