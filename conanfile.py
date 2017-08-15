@@ -66,9 +66,11 @@ class BoostLevel8GroupConan(ConanFile):
         
     def package(self):
         for lib_short_name in self.lib_short_names:
-            include_dir = os.path.join(self.build_folder, lib_short_name, "include")
+            include_dir = os.path.join(lib_short_name, "include")
             self.copy(pattern="*", dst="include", src=include_dir)
+
         self.copy(pattern="*", dst="lib", src="stage/lib")
        
     def package_info(self):
+        self.user_info.lib_short_names = (",").join(self.lib_short_names)
         self.cpp_info.libs = self.collect_libs()
