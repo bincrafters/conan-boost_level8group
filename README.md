@@ -10,14 +10,14 @@ The packages generated with this **conanfile** can be found in [Bintray](https:/
 
 ### Basic setup for using with other Boost packages
 
-    $ conan install Boost.Level8Group/1.64.0@bincrafters/stable
+    $ conan install Boost.Level8Group/1.64.0@bincrafters/testing
 
 ### Project setup
 
 If you handle multiple dependencies in your project is better to add a *conanfile.txt*
 
     [requires]
-    Boost.Level8Group/1.64.0@bincrafters/stable
+    Boost.Level8Group/1.64.0@bincrafters/testing
 
     [generators]
     txt
@@ -36,7 +36,7 @@ This package contains header-only libraries, so nothing needs to be built.
 
     $ conan create bincrafters/testing
 	
-## Add Remote and Associate package with it
+## Add Remote
 
 	$ conan remote add bincrafters "https://api.bintray.com/conan/bincrafters/public-conan"
 
