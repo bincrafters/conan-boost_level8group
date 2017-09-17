@@ -3,7 +3,7 @@ from conans import ConanFile, tools, os
 
 class BoostLevel8GroupConan(ConanFile):
     name = "Boost.Level8Group"
-    version = "1.64.0"
+    version = "1.65.1"
     generators = "boost"
     settings = "os", "arch", "compiler", "build_type"
     short_paths = True
@@ -14,28 +14,28 @@ class BoostLevel8GroupConan(ConanFile):
     lib_short_names = ["math", "lexical_cast"]
     options = {"shared": [True, False]}
     default_options = "shared=False"
-    requires = "Boost.Array/1.64.0@bincrafters/testing", \
-               "Boost.Assert/1.64.0@bincrafters/testing", \
-               "Boost.Atomic/1.64.0@bincrafters/testing", \
-               "Boost.Concept_Check/1.64.0@bincrafters/testing", \
-               "Boost.Container/1.64.0@bincrafters/testing", \
-               "Boost.Config/1.64.0@bincrafters/testing", \
-               "Boost.Core/1.64.0@bincrafters/testing", \
-               "Boost.Detail/1.64.0@bincrafters/testing", \
-               "Boost.Function/1.64.0@bincrafters/testing", \
-               "Boost.Fusion/1.64.0@bincrafters/testing", \
-               "Boost.Integer/1.64.0@bincrafters/testing", \
-               "Boost.Lambda/1.64.0@bincrafters/testing", \
-               "Boost.Mpl/1.64.0@bincrafters/testing", \
-               "Boost.Numeric_Conversion/1.64.0@bincrafters/testing", \
-               "Boost.Predef/1.64.0@bincrafters/testing", \
-               "Boost.Range/1.64.0@bincrafters/testing", \
-               "Boost.Smart_Ptr/1.64.0@bincrafters/testing", \
-               "Boost.Static_Assert/1.64.0@bincrafters/testing", \
-               "Boost.Throw_Exception/1.64.0@bincrafters/testing", \
-               "Boost.Tuple/1.64.0@bincrafters/testing", \
-               "Boost.Type_Traits/1.64.0@bincrafters/testing", \
-               "Boost.Utility/1.64.0@bincrafters/testing"
+    requires = "Boost.Array/1.65.1@bincrafters/testing", \
+               "Boost.Assert/1.65.1@bincrafters/testing", \
+               "Boost.Atomic/1.65.1@bincrafters/testing", \
+               "Boost.Concept_Check/1.65.1@bincrafters/testing", \
+               "Boost.Container/1.65.1@bincrafters/testing", \
+               "Boost.Config/1.65.1@bincrafters/testing", \
+               "Boost.Core/1.65.1@bincrafters/testing", \
+               "Boost.Detail/1.65.1@bincrafters/testing", \
+               "Boost.Function/1.65.1@bincrafters/testing", \
+               "Boost.Fusion/1.65.1@bincrafters/testing", \
+               "Boost.Integer/1.65.1@bincrafters/testing", \
+               "Boost.Lambda/1.65.1@bincrafters/testing", \
+               "Boost.Mpl/1.65.1@bincrafters/testing", \
+               "Boost.Numeric_Conversion/1.65.1@bincrafters/testing", \
+               "Boost.Predef/1.65.1@bincrafters/testing", \
+               "Boost.Range/1.65.1@bincrafters/testing", \
+               "Boost.Smart_Ptr/1.65.1@bincrafters/testing", \
+               "Boost.Static_Assert/1.65.1@bincrafters/testing", \
+               "Boost.Throw_Exception/1.65.1@bincrafters/testing", \
+               "Boost.Tuple/1.65.1@bincrafters/testing", \
+               "Boost.Type_Traits/1.65.1@bincrafters/testing", \
+               "Boost.Utility/1.65.1@bincrafters/testing"
 
     # Math Dependencies
     # array3 assert1 atomic4 concept_check5 config0 core2 detail5 function5 fusion5 integer3
