@@ -10,7 +10,7 @@ class BoostLevel8GroupConan(ConanFile):
     url = "https://github.com/bincrafters/conan-boost-level8group"
     description = "Special package with all members of cyclic dependency group"
     license = "www.boost.org/users/license.html"
-    build_requires = "Boost.Generator/1.64.0@bincrafters/testing"
+    build_requires = "Boost.Generator/1.65.1@bincrafters/testing"
     lib_short_names = ["math", "lexical_cast"]
     options = {"shared": [True, False]}
     default_options = "shared=False"
