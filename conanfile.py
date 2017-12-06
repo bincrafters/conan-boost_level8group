@@ -4,15 +4,12 @@ from conans import ConanFile, tools
 class BoostLevel8GroupConan(ConanFile):
     name = "Boost.Level8Group"
     version = "1.65.1"
-    url = "https://github.com/bincrafters/conan-boost-level8group"
-    description = "Special package with all members of cyclic dependency group"
-    license = "www.boost.org/users/license.html"
 
-    settings = "os", "arch", "compiler", "build_type"
     options = {"shared": [True, False]}
     default_options = "shared=False"
 
     requires = \
+        "Boost.Generator/1.65.1@bincrafters/testing", \
         "Boost.Array/1.65.1@bincrafters/testing", \
         "Boost.Assert/1.65.1@bincrafters/testing", \
         "Boost.Atomic/1.65.1@bincrafters/testing", \
@@ -40,22 +37,25 @@ class BoostLevel8GroupConan(ConanFile):
     is_header_only = {"lexical_cast":True, "math":False}
     is_cycle_group = True
 
+
     # BEGIN
 
+    url = "https://github.com/bincrafters/conan-boost-level8group"
+    description = "Please visit http://www.boost.org/doc/libs/1_65_1"
+    license = "www.boost.org/users/license.html"
     short_paths = True
     build_requires = "Boost.Generator/1.65.1@bincrafters/testing"
     generators = "boost"
+    settings = "os", "arch", "compiler", "build_type"
 
-    # pylint: disable=unused-import
     @property
     def env(self):
         try:
             with tools.pythonpath(super(self.__class__, self)):
-                import boostgenerator # pylint: disable=F0401
+                import boostgenerator  # pylint: disable=F0401
                 boostgenerator.BoostConanFile(self)
         except:
             pass
         return super(self.__class__, self).env
 
     # END
-
