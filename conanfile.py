@@ -7,7 +7,7 @@ from conans import ConanFile, tools
 class BoostLevel8GroupConan(ConanFile):
     name = "boost_level8group"
     version = "1.66.0"
-    url = "https://github.com/bincrafters/conan-boost-level8group"
+    url = "https://github.com/bincrafters/conan-boost_level8group"
 
     lib_short_names = ["lexical_cast", "math"]
     is_cycle_group = True
