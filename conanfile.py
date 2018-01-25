@@ -8,7 +8,8 @@ class BoostLevel8GroupConan(ConanFile):
     name = "boost_level8group"
     version = "1.66.0"
     url = "https://github.com/bincrafters/conan-boost_level8group"
-
+    author = "Bincrafters <bincrafters@gmail.com>"
+    exports = ["LICENSE.md"]
     lib_short_names = ["lexical_cast", "math"]
     is_cycle_group = True
     is_header_only = {"lexical_cast":True, "math":False}
