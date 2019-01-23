@@ -9,6 +9,7 @@ base = python_requires("boost_base/1.67.0@bincrafters/testing")
 class BoostLevel8GroupConan(base.BoostBaseConan):
     # This is now Level 12
     name = "boost_level8group"
+    version = "1.67.0"
     url = "https://github.com/bincrafters/conan-boost_level8group"
     lib_short_names = ["lexical_cast", "math"]
     header_only_libs = ["lexical_cast"]
